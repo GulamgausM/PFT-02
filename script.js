@@ -884,3 +884,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Floating button behaviour 
+document.getElementById("scrollToCartBtn").addEventListener("click", function() {
+    document.getElementById("cartDetails").scrollIntoView({ behavior: "smooth" });
+});
+
+
