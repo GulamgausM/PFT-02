@@ -439,15 +439,16 @@
             text-align: center;
         }
 
-        th, td {
-            width: clamp(10%, 15%, 20%);
-            border: 2px solid lightgrey;
-            font-size: clamp(12px, 2vw, 16px);
-            text-align: center;
-            height: clamp(30px, 5vh, 50px);
-            padding: 5px;
-            box-sizing: border-box;
-        }
+          th, td {
+  width: clamp(10%, 15%, 20%); /* Flexible width between 10% and 20% */
+  border: 2px solid lightgrey;
+  font-size: clamp(12px, 2vw, 16px); /* Scales font size with viewport */
+  text-align: center;
+  height: clamp(30px, 5vh, 50px); /* Responsive height */
+  padding: 5px; /* Adds internal spacing for better readability */
+  box-sizing: border-box; /* Ensures padding doesn't increase width/height */
+}
+
 
         .total-amount {
             text-align: right;
