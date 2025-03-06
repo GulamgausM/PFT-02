@@ -106,7 +106,6 @@
     padding: 5px;
   }
 }
-
     
     .product {
       border: 1px solid #ccc;
@@ -166,8 +165,8 @@
   text-align: center;
   margin: 1px;
 }
-    
-  </style>
+  
+</style>
 </head>
 <body>
   <header>
@@ -394,9 +393,36 @@
 </div>
     </div>
   </section>
-
+  
   <!-- Cart Details Section -->
-  <style>
+    <style>
+/* Floating Button - Smaller Size */
+.floating-btn {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 30px;  /* Reduced size */
+    height: 30px; /* Reduced size */
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    font-size: 18px; /* Smaller icon/text */
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.floating-btn:hover {
+    background: #0056b3;
+    transform: translateY(-50%) scale(1.1);
+}
+
+        /* Cart Section */
     #cartDetails {
       margin: 1%;
       border: 1px solid #ccc;
@@ -404,97 +430,92 @@
       background-color: #f9f9f9;
       text-align: center;
       font-size: 20px;
-      
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     }
-    
-    table {
-      width: 100%;
-      border: 1px solid lightgrey;
-      margin-right: 10%;
-      text-align: center; 
-    }
-    
-    th, td {
-  width: clamp(10%, 15%, 20%); /* Flexible width between 10% and 20% */
-  border: 2px solid lightgrey;
-  font-size: clamp(12px, 2vw, 16px); /* Scales font size with viewport */
-  text-align: center;
-  height: clamp(30px, 5vh, 50px); /* Responsive height */
-  padding: 5px; /* Adds internal spacing for better readability */
-  box-sizing: border-box; /* Ensures padding doesn't increase width/height */
-}
 
-/* Small screens (e.g., tablets and below) */
-@media (max-width: 768px) {
-  th, td {
-    font-size: clamp(10px, 1.8vw, 14px); /* Slightly smaller text */
-    height: clamp(25px, 4vh, 40px); /* Reduced height */
-    padding: 3px; /* Reduced padding */
-  }
-}
+        table {
+            width: 100%;
+            border: 1px solid lightgrey;
+            text-align: center;
+        }
 
-/* Very small screens (e.g., mobile phones) */
-@media (max-width: 400px) {
-  th, td {
-    font-size: clamp(8px, 1.5vw, 12px); /* Even smaller text */
-    height: clamp(20px, 3vh, 35px); /* Further reduced height */
-    padding: 2px; /* Minimal padding */
-    width: 20%; /* Fixed width to ensure 5 columns fit */
-  }
-}
+        th, td {
+            width: clamp(10%, 15%, 20%);
+            border: 2px solid lightgrey;
+            font-size: clamp(12px, 2vw, 16px);
+            text-align: center;
+            height: clamp(30px, 5vh, 50px);
+            padding: 5px;
+            box-sizing: border-box;
+        }
 
-/* Large screens (e.g., desktops) */
-@media (min-width: 1200px) {
-  th, td {
-    font-size: clamp(14px, 2vw, 18px); /* Slightly larger text */
-    height: clamp(40px, 5vh, 60px); /* Slightly taller cells */
-    padding: 8px; /* More spacious padding */
-  }
-}
-    
-    .button {
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      font-size: 14px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    #PlaceOrdertButton {
-      background-color: #28a745;
-    }
-    #clearCartButton {
-      background-color: #dc3545;
-    }
-  </style>
-  <section id="cartDetails">
-    <h4>Cart Details / कार्टचे तपशील</h4>
-    <table>
-      <thead>
-        <tr>
-          <th>Product Name</th>
-          <th>Quantity in Kg</th>
-          <th>Unit Price/Kg (₹)</th>
-          <th>Total Price (₹)</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="cartItems">
-        <tr>
-          <td colspan="5">No items in the cart</td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="text-align: right; font-size: 14px; margin-top: 10px; color: red; font-family: 'Courier New', Courier, monospace; font-weight: bold;">
-      Total Amount: ₹<span id="cartTotal">0.00</span>
-    </div>
-    <div style="width: 10% auto; text-align: center;">
-      <button id="PlaceOrdertButton" class="button">Place Order</button>
-      <button id="clearCartButton" class="button">Clear Cart</button>
-    </div>
-  </section>
+        .total-amount {
+            text-align: right;
+            font-size: 14px;
+            margin-top: 10px;
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .cart-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #PlaceOrdertButton {
+            background-color: #28a745;
+        }
+
+        #clearCartButton {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Button -->
+    <button id="scrollToCartBtn" class="floating-btn">🛒</button>
+
+    <!-- Cart Details Section -->
+    <section id="cartDetails">
+        <h4>Cart Details / कार्टचे तपशील</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity in Kg</th>
+                    <th>Unit Price/Kg (₹)</th>
+                    <th>Total Price (₹)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <tr>
+                    <td colspan="5">No items in the cart</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total-amount">
+            Total Amount: ₹<span id="cartTotal">0.00</span>
+        </div>
+        <div class="cart-buttons">
+            <button id="PlaceOrdertButton" class="button">Place Order</button>
+            <button id="clearCartButton" class="button">Clear Cart</button>
+        </div>
+    </section>
+</body>
+</html>
 
 <!-- Footer Section -->
 <footer style="background-image: url('https://i.ibb.co/C2cFmw6/pexels-oguz-karademir-591747508-17693614-Copy.jpg'); background-size: cover; background-color: #87CEEB; padding: 10px; text-align: center; font-size: 10px;">
@@ -503,3 +524,5 @@
 <script src="script.js"></script>
 </body>
 
+<!-- Floating button details -->
+ 
