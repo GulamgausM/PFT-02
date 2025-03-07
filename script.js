@@ -823,7 +823,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const productImage = productElement.querySelector("img").src;
             const productInfo = productDetails[productName] || {};
 
-            let detailsTable = "<table border='1' class='product-table'><tbody>";
+            let detailsTable = "<table border='2' class='product-table'><tbody>";
             for (const key in productInfo) {
                 if (Array.isArray(productInfo[key])) {
                     detailsTable += `<tr><td><strong>${key}:</strong></td><td><ul>`;
