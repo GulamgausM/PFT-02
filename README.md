@@ -1,4 +1,4 @@
-Power Fertilizers E-Commerce Website
+Power Fertilizers 
 
 Overview
 
